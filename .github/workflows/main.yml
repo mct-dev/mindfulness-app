@@ -1,25 +1,12 @@
 name: CI
 
 on:
-  push:
-  deployment:
   deployment_status:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
-  echo-context:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          echo "$GITHUB_CONTEXT"
-      - name: Dump pipeline vars
-        run: echo github.event_name && echo github.event.deployment_status
-
   e2e:
     # only runs this job on successful vercel deploy
     if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
