@@ -9,9 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  e2e:
-    # only runs this job on successful vercel deploy
-    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+  echo-context:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -19,6 +17,14 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
+      - name: Dump pipeline vars
+        run: echo github.event_name && echo github.event.deployment_status
+
+  e2e:
+    # only runs this job on successful vercel deploy
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout 🛎
         uses: actions/checkout@v1
       - name: Run Cypress 🌲
