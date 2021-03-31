@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mindfulness App
+
+[![mindfulness-app](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/detailed/qqa5z1&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/qqa5z1/runs)
 
 ## Getting Started
 
