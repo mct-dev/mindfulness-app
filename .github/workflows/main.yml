@@ -14,24 +14,17 @@ jobs:
     if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+      - name: Dump pipeline vars
+        run: echo github.event_name && echo github.event.deployment_status
+
       - name: Checkout 🛎
         uses: actions/checkout@v1
       - name: Run Cypress 🌲
         uses: cypress-io/github-action@v2
         env:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
-
-  # build-and-test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout 
-  #     - uses: actions/checkout@v2
-
-  #     - name: Install
-  #       run: yarn --frozen-lockfile
-
-  #     - name: Build
-  #       run: yarn build
-        
-  #     - name: Test
-  #       run: yarn test
