@@ -27,7 +27,7 @@ const Home: FC<Props> = ({ data }) => {
       </Head>
 
       <main>
-        <h1>Posts</h1>
+        <h1>Post List</h1>
         {data.map((d, ix) => (
           <Post key={ix}>
             <h3>{d.title}</h3>
