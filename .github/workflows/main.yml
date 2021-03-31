@@ -2,11 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
   deployment:
-    branches: [ main ]
   deployment_status:
-    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
