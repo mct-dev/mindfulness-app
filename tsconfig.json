@@ -19,9 +19,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "~lib/*": ["lib/*"],
-      "~styles/*": ["styles/*"],
-      "~pages/*": ["pages/*"]
+      "~*": ["./*"]
     },
   },
   "include": [
@@ -30,6 +28,7 @@
     "**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/*.spec.ts"
   ]
 }

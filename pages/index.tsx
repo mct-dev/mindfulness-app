@@ -1,17 +1,26 @@
+import { lighten } from 'polished'
 import { GetServerSideProps } from "next"
 import Head from 'next/head'
-import { FC } from "react"
+import React, { FC } from "react"
 
 import { getPosts, PostData } from '~pages/api/posts'
-import styles from '../styles/Home.module.css'
+import theme, { styled } from "~styles"
 
 interface Props {
   data: PostData[]
 }
 
+const Post = styled.div`
+  box-shadow: 0px 0px 6px 2px #e6e6e6;
+
+  .dark & {
+    box-shadow: 0px 0px 6px 2px ${lighten(0.2, theme.color.negative)};
+  }
+`
+
 const Home: FC<Props> = ({ data }) => {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -19,11 +28,11 @@ const Home: FC<Props> = ({ data }) => {
 
       <main>
         <h1>Posts</h1>
-        {data.map(d => (
-          <div>
+        {data.map((d, ix) => (
+          <Post key={ix}>
             <h3>{d.title}</h3>
             <p>{d.body}</p>
-          </div>
+          </Post>
         ))}
         <div>{JSON.stringify(data)}</div>
       </main>
