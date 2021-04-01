@@ -52,10 +52,5 @@ jobs:
             "description": "Cypress tests failed"
           }'
 
-      - name: Print GitHub event 🖨
-        env:
-          GITHUB_EVENT: ${{ toJson(github.event) }}
-        run: echo "$GITHUB_EVENT"
-
-      - name: Print GitHub env variables 🖨
-        run: npx @bahmutov/print-env GITHUB
+      - name: Code Coverage
+        run: yarn check-coverage
