@@ -22,6 +22,15 @@ jobs:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
+      - name: Code Coverage
+        run: yarn check-coverage
+
+      - name: Code Coverage Report
+        uses: romeovs/lcov-reporter-action@v0.2.16
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          lcov-file: ./coverage/lcov.info
+
       # https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
       - name: Cypress tests ✅
         if: ${{ success() }}
@@ -51,12 +60,3 @@ jobs:
             "state": "failure",
             "description": "Cypress tests failed"
           }'
-
-      - name: Code Coverage
-        run: yarn check-coverage
-
-      - name: Code Coverage Report
-        uses: romeovs/lcov-reporter-action@v0.2.16
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          lcov-file: ./coverage/lcov.info
