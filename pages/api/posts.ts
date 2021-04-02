@@ -10,12 +10,14 @@ export interface PostData {
   body: string 
 }
 
-export const getPosts = async () => {
+const getPosts = async () => {
   const response = await axios.get<PostData[]>('https://jsonplaceholder.typicode.com/posts')
 
   return response.data
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  return await getPosts()
+  const data = await getPosts()
+
+  res.status(200).json(data)
 }

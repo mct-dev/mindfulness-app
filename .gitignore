@@ -1,5 +1,11 @@
 .env*
+
 node_modules
+
 .next
+
 cypress/videos
 cypress/screenshots
+
+coverage
+.nyc_output

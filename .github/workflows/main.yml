@@ -22,6 +22,9 @@ jobs:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
+      - name: Code Coverage
+        run: yarn check-coverage
+
       # https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
       - name: Cypress tests ✅
         if: ${{ success() }}
@@ -51,11 +54,3 @@ jobs:
             "state": "failure",
             "description": "Cypress tests failed"
           }'
-
-      - name: Print GitHub event 🖨
-        env:
-          GITHUB_EVENT: ${{ toJson(github.event) }}
-        run: echo "$GITHUB_EVENT"
-
-      - name: Print GitHub env variables 🖨
-        run: npx @bahmutov/print-env GITHUB
