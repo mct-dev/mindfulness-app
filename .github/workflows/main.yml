@@ -22,19 +22,6 @@ jobs:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
-      # - name: Code Coverage Report
-      #   uses: romeovs/lcov-reporter-action@v0.2.16
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     lcov-file: ./coverage/lcov.info
-
-      - name: Code Coverage Report
-        uses: AthleticNet/comment-test-coverage@1.1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          path: coverage/coverage-summary.json
-          title: Code Coverage
-
       - name: Code Coverage
         run: yarn check-coverage
 
