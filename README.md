@@ -1,7 +1,6 @@
 # Mindfulness App
 
-[![mindfulness-app](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/detailed/qqa5z1&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/qqa5z1/runs)
-
+[![mindfulness-app](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/qqa5z1&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/qqa5z1/runs)
 ## Getting Started
 
 First, run the development server:
