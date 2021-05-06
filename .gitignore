@@ -1,6 +1,18 @@
 .env*
 
+# deps
 node_modules
+
+# yarn caching
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# yarn zero-install file (uncomment to use zero-install)
+.pnp.*
 
 .next
 
