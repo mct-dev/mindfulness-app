@@ -17,6 +17,7 @@
     "@emotion/styled": "^11.1.5",
     "axios": "^0.21.1",
     "babel-plugin-istanbul": "^6.0.0",
+    "firebase": "^8.5.0",
     "lodash": "^4.17.21",
     "next": "10.1.2",
     "polished": "^4.1.1",
