@@ -1,4 +1,4 @@
-import "@emotion/react";
+import '@emotion/react'
 
 declare module '@emotion/react' {
   export interface Theme {
@@ -7,6 +7,8 @@ declare module '@emotion/react' {
       primary: string
       positive: string
       negative: string
+      black: string
+      white: string
     }
   }
 }

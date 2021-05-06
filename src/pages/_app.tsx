@@ -1,12 +1,9 @@
 import { ThemeProvider } from '@emotion/react'
-import { AppProps } from "next/dist/next-server/lib/router/router"
-import { useEffect, useState } from "react"
-import { Global } from "~styles"
-import createGlobalStyles from "~styles/global"
-import theme from "~styles/theme"
+import { AppProps } from 'next/dist/next-server/lib/router/router'
+import { useEffect } from 'react'
+import { createGlobalStyles, Global, theme } from '~styles'
 
-function MyApp({ Component, pageProps }: AppProps) {
-
+function MyApp ({ Component, pageProps }: AppProps): JSX.Element {
   useEffect(() => {
     if (theme.darkMode) {
       document.body.classList.add('dark')

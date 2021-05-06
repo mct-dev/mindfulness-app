@@ -1,22 +1,22 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import axios from "axios"
-import { NextApiRequest, NextApiResponse } from "next"
+import axios from 'axios'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 export interface PostData {
   id: number
   userId: number
-  title: string 
-  body: string 
+  title: string
+  body: string
 }
 
-const getPosts = async () => {
+const getPosts = async (): Promise<PostData[]> => {
   const response = await axios.get<PostData[]>('https://jsonplaceholder.typicode.com/posts')
 
   return response.data
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   const data = await getPosts()
 
   res.status(200).json(data)

@@ -1,10 +1,10 @@
-import { css, Theme } from "@emotion/react";
+import { css, SerializedStyles, Theme } from '@emotion/react'
 
-const createGlobalStyles = (theme: Theme) => css`
+const createGlobalStyles = (theme: Theme): SerializedStyles => css`
   :root {
     color: ${theme.darkMode ? theme.color.positive : theme.color.negative};
     background: ${theme.darkMode ? theme.color.negative : theme.color.positive};
   }
-`;
+`
 
-export default createGlobalStyles;
+export default createGlobalStyles
